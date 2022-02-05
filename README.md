@@ -23,7 +23,7 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 - Install `python3.9` and `postgreSQL` in your system.
 - Navigate to `FamPay` folder
 - Install all dependencies using `pip install -r requirements.txt`
-- Run `main.py` it will take take of all the heavylifting.
+- Run `main.py` it will take care of all the heavylifting.
 - Voila! you will see application started working.
 - Hit the postman and observe the result.
 - Below is api output.
