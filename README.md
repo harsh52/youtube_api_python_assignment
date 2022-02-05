@@ -16,9 +16,32 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 - Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
     - Ex 1: A video with title *`How to make tea?`* should match for the search query `tea how`
 
-# Reference:
+## Reference:
 
 - YouTube data v3 API: [https://developers.google.com/youtube/v3/getting-started](https://developers.google.com/youtube/v3/getting-started)
 - Search API reference: [https://developers.google.com/youtube/v3/docs/search/list](https://developers.google.com/youtube/v3/docs/search/list)
     - To fetch the latest videos you need to specify these: type=video, order=date, publishedAfter=<SOME_DATE_TIME>
     - Without publishedAfter, it will give you cached results which will be too old
+
+## Tools used
+- Python3.9, flask, sqlalchemy, postgreSQL
+
+## How to start the program?
+- Install `python3.9` and `postgreSQL` in your system.
+- Navigate to `FamPay` folder
+- Install all dependencies using `pip install -r requirements.txt`
+- Run `main.py` it will take take of all the heavylifting.
+- Voila! you will see application started working.
+- Hit the postman and observe the result.
+- Below have postman output.
+
+### API to show result in paginated format in descending order of published datetime.
+![Show result in paginated format](https://user-images.githubusercontent.com/38341037/152645192-22d96586-5964-4761-aaf3-dbf8e9d957d2.jpg)
+
+### A Optimise search api to search the stored videos using their title and description.
+![image](https://user-images.githubusercontent.com/38341037/152645269-149030b6-d1e8-4253-a064-38d61c37c258.png)
+
+
+
+
+
