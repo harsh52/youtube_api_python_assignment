@@ -5,11 +5,17 @@ from datetime import datetime
 
 
 def convertDate(d):
+    """
+    Convert date time into appropiate format.
+    """
     new_date = datetime.strptime(d, "%Y-%m-%dT%H:%M:%fZ")
     return new_date
 
 
 def store_yt_search_in_db():
+    """
+    Responsible for making storing data into db from youtube api.
+    """
     try:
         data = fetch_last_run_script_time(script_name)
         res = make_search_query_on_yt(keyword=SEARCH_KEYWORD)
@@ -18,8 +24,8 @@ def store_yt_search_in_db():
             id = items.get('id')
             yt_db_data = session.query(YT_search_info).filter(YT_search_info.vid_id == id.get('videoId')).all()
 
-            # if len(data) == 0 or data[0].last_run_time < convertDate(yt_data.get('publishTime')):
             if len(yt_db_data) == 0:
+                # Store into db
                 search = YT_search_info(created_at=datetime.utcnow(), updated_at=datetime.utcnow(),
                                         vid_id=id.get('videoId'),
                                         title=yt_data.get('title'), desc=yt_data.get('description'),
@@ -33,7 +39,6 @@ def store_yt_search_in_db():
         else:
             update_time = session.query(last_script_run).filter(last_script_run.script_name == script_name).first()
             update_time = datetime.utcnow()
-
 
     except Exception as e:
         print(f"Not able to store data in db reason: {e}")
