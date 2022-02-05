@@ -16,13 +16,6 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 - Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
     - Ex 1: A video with title *`How to make tea?`* should match for the search query `tea how`
 
-## Reference:
-
-- YouTube data v3 API: [https://developers.google.com/youtube/v3/getting-started](https://developers.google.com/youtube/v3/getting-started)
-- Search API reference: [https://developers.google.com/youtube/v3/docs/search/list](https://developers.google.com/youtube/v3/docs/search/list)
-    - To fetch the latest videos you need to specify these: type=video, order=date, publishedAfter=<SOME_DATE_TIME>
-    - Without publishedAfter, it will give you cached results which will be too old
-
 ## Tools used
 - Python3.9, flask, sqlalchemy, postgreSQL
 
@@ -42,6 +35,11 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 ![image](https://user-images.githubusercontent.com/38341037/152645269-149030b6-d1e8-4253-a064-38d61c37c258.png)
 
 
+## Reference:
 
+- YouTube data v3 API: [https://developers.google.com/youtube/v3/getting-started](https://developers.google.com/youtube/v3/getting-started)
+- Search API reference: [https://developers.google.com/youtube/v3/docs/search/list](https://developers.google.com/youtube/v3/docs/search/list)
+    - To fetch the latest videos you need to specify these: type=video, order=date, publishedAfter=<SOME_DATE_TIME>
+    - Without publishedAfter, it will give you cached results which will be too old
 
 
