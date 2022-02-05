@@ -67,18 +67,19 @@ def yt_video_info():
 @app.route('/search_video', methods=['GET'])
 def search_video():
     """
-    A basic search API to search the stored videos using their title and description.
+    A optimized search API to search the stored videos using their title and description.
 
     """
-    # title = request.args.get('title', type=str)
-    # desc = request.args.get('desc', type=str)
+    # Remove special character.
     title = re.sub('\W+', ' ', request.args.get('title', type=str))
     desc = re.sub('\W+', ' ', request.args.get('desc', type=str))
 
+    # Search on db table
     data = YT_search_info.query.filter(YT_search_info.title.like("%"+title+"%") | YT_search_info.title.like("%"+desc+"%")).all()
     list = []
     if len(data) == 0:
         return(f"No result found")
+    # Convert into proper list[dict{}] format
     for item in data:
         dict = {}
         dict['vid_id'] = item.vid_id
