@@ -21,7 +21,7 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 
 ## How to start the program?
 - Install `python3.9` and `postgreSQL` in your system.
-- config youtube api key in api_config file eg: `key_list = ["key_1", "key_2","key_3", "key_4"]` and setup your db cred in `schemas_and_app.py`
+- config youtube api key in `api_config` file eg: `key_list = ["key_1", "key_2","key_3", "key_4"]` and setup your db cred in `schemas_and_app.py`
 - Navigate to `FamPay` folder
 - Install all dependencies using `pip install -r requirements.txt`
 - Run `main.py` it will take care of all the heavylifting.
